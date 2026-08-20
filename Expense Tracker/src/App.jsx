@@ -5,10 +5,10 @@ import ExpenseList from './ExpenseList';
 import './App.css'
 
 function App() {
-		const [expense , setExpense] = useState([])
+		const [expenses , setExpenses] = useState([])
 
 	const addExpense = (expense) => {
-
+		setExpense((prev) => [...prev, expenses])
 	}
 
 	const deleteExpense = (id) => {
@@ -19,9 +19,9 @@ function App() {
       
       	<div class="app-container">
 		<h1>💰 Expense Tracker</h1>
-		<ExpenseForm/>
+		<ExpenseForm onAddExpense={addExpense}/>
 		<h3 class="total">Total Expense: ₹750.00</h3>
-		<ExpenseList/>
+		<ExpenseList expenses={expenses} onDelete={deleteExpense}/>
 	</div>
   )
 }

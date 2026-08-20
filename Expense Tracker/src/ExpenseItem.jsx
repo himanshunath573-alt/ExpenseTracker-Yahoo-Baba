@@ -1,11 +1,11 @@
 
 
-function ExpenseItem() {
+function ExpenseItem({ item , onDelete}) {
   return (
     <div class="expense-item">
-        <span>Internet Charges </span>
-        <span>₹500</span>
-        <button>❌</button>
+        <span>{item.title} </span>
+        <span>{item.amount}</span>
+        <button onClick={() => onDelete(item.id)}>❌</button>
         </div>
   )
 }
